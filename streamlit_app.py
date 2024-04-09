@@ -17,5 +17,4 @@ league = League(league_id=6540, year=2024, espn_s2='AEB2PdDuO%2Bczk7Dcb7nN2zYhyq
 # fetch_league() when ready to use. 
 # league = League(league_id=1245, year=2018, fetch_league=False)
 
-
-st.write(league)
+st.dataframe(league)
