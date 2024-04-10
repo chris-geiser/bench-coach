@@ -4,9 +4,9 @@ from espn_api.baseball import League
 
 # Call ESPN API
 league = League(
-#    **st.secrets.espn_credentials, # all credentials
-   league_id=st.secrets.espn_credentials.league_id,
-   year=st.secrets.espn_credentials.year,
+    **st.secrets.espn_credentials, # all credentials
+#   league_id=st.secrets.espn_credentials.league_id,
+#   year=st.secrets.espn_credentials.year,
    debug=True, #debug mode
 )
 
