@@ -3,7 +3,7 @@ import pandas as pd
 from espn_api.baseball import League
 
 # Call ESPN API
-league = League(league_id, year, espn_s2, swid)
+league = League(**st.secrets.espn_credentials)
 
 # Call ESPN API in Debug Mode
 # league = League(league_id=1245, year=2018, debug=True)
