@@ -29,4 +29,4 @@ league = League(
 #league_data['week'] = league_data['week'].apply(lambda x: x + 1)
 
 #st.dataframe(league_data)
-st.write(league)
+st.write(league.teams)
