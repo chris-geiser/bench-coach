@@ -28,4 +28,4 @@ league = League(
 # add +1 to every week
 #league_data['week'] = league_data['week'].apply(lambda x: x + 1)
 
-st.write(league)
+st.write(league.teams[-1].__dict__)
