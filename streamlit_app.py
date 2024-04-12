@@ -1,6 +1,5 @@
 import streamlit as st 
 import pandas as pd
-from pandas import json_normalize 
 from espn_api.baseball import League
 
 # Call ESPN API
@@ -9,7 +8,7 @@ league = League(
    debug=False, #debug mode
 )
 
-team_data = json_normalize(league)
+team_data = pd.json_normalize(league.teams)
 
 
 
