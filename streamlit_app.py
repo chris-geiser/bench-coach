@@ -5,11 +5,10 @@ from espn_api.baseball import League
 # Call ESPN API
 league = League(
     **st.secrets.espn_credentials, # all credentials
-   debug=False, #debug mode
+   debug=True, #debug mode
 )
 
-team_data = pd.DataFrame(league, 'team_id')
-
+print(league)
 
 
 # Repeat concatenation into a DataFrame
