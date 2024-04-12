@@ -3,30 +3,36 @@ import pandas as pd
 from espn_api.baseball import League
 
 # Call ESPN API
+
+
 league = League(
     **st.secrets.espn_credentials, # all credentials
-   debug=True, #debug mode
+   debug=False, #debug mode
 )
 
-# Get a list of columns for our dataframe
-#df_columns = list(league.teams[0].__dict__.keys())
+# Create Teams DataFrame
+team_data = pd.DataFrame()
 
-# Remove roster from list of columns
-#df_columns.remove('roster')
+# Append teams to DataFrame
+for d in range(len(league.teams)):
+    team_df = league.teams[d].__dict__
+    team_data = team_data.append(team_df, ignore_index=True)
 
-# Append teams to dataframe
-#for d in range(len(league.teams)):
-#    team_df = pd.DataFrame(league.teams[d].__dict__, columns=df_columns)
-#    league_data = league_data.append(team_df)
+# Create Roster DataFrame
+roster_data = team_data[['team_id','roster']].copy()
 
-# change the index to 'week'
-#league_data.index.names = ['week']
+# Create Owners DataFrame
+owner_data = team_data[['team_id','owners']].copy()
 
-# add 'week' column
-#league_data.reset_index(level='week', inplace=True)
-
-# add +1 to every week
-#league_data['week'] = league_data['week'].apply(lambda x: x + 1)
+# Drop unecessary columns
+team_data = team_data.drop(['division_id','division_name','wins','losses','ties','logo_url','final_standing','schedule','owners', 'roster'], axis=1)
 
 #st.dataframe(league_data)
-st.write(league.teams)
+st.header("League Teams")
+st.write(team_data)
+
+st.header("Owner Details")
+st.write(owner_data)
+
+st.header("Roster Details")
+st.write(roster_data)
