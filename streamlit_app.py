@@ -1,5 +1,6 @@
 import streamlit as st 
 import pandas as pd
+from pandas import json_normalize 
 from espn_api.baseball import League
 
 # Call ESPN API
