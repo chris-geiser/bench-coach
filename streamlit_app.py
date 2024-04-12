@@ -42,8 +42,8 @@ print(league)
 # team_data = team_data.drop(['division_id','division_name','wins','losses','ties','logo_url','final_standing','schedule','owners', 'roster'], axis=1)
 
 #st.dataframe(league_data)
-st.header("League Teams")
-st.write(team_data)
+#st.header("League Teams")
+#st.write(team_data)
 
 # st.header("Owner Details")
 # st.write(owner_data)
