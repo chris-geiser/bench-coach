@@ -8,7 +8,7 @@ league = League(
    debug=False, #debug mode
 )
 
-team_data = pd.json_normalize(league.teams)
+team_data = pd.json_normalize(league.teams[0])
 
 
 
